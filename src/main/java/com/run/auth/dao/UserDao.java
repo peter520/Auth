@@ -13,7 +13,9 @@ import com.run.auth.common.BaseDao;
 import com.run.auth.entity.User;
 @Repository
 public class UserDao extends BaseDao{
-	
+		/**
+	 * RowMapper是一个接口，数据库中行的映射
+	 */
 	private class UserMapper implements RowMapper<User>{
 
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -29,7 +31,7 @@ public class UserDao extends BaseDao{
 	 * 根据用户名密码查询用户，用于登录
 	 * @param name
 	 * @param pwd
-	 * @return
+	 * @return  查询返回唯一用户实体
 	 */
 	public User getUser(String name , String pwd){
 		String sql = "select * from auth_user where name = ? and pwd = ?";
